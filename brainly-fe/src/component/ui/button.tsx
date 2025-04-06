@@ -5,9 +5,9 @@ export interface ButtonProps {
     variant:"primary"| "secondary";
     size:"sm"| "md"|"lg";
     text:string;
-    startIcon:ReactElement;
-    endIcon:ReactElement;
-    onClick:()=>void
+    startIcon?:ReactElement;
+    endIcon?:ReactElement;
+    onClick?:()=>void
 }
 
 
@@ -15,18 +15,26 @@ export interface ButtonProps {
 const defaultStyle="rounded-md p-4 flex"
 const variantStyles={
     "primary": "bg-[#4643dd] text-white",
-    "secondary":"bg-[#a7f7fe] text-white"
+    "secondary":"bg-[#b9c9f3] text-white"
 }
 
 const sizeStyle={
-    "sm":"py-1 px-2",
-    "md":"py-2 px-6",
-    "lg":"py-4 px-8"
+    "sm":"py-1 px-2 rounded-sm",
+    "md":"py-2 px-6 rounded-md",
+    "lg":"py-4 px-8 rounded xl"
 }
 
 export const Button =(props:ButtonProps)=>{
+
+    
+
   return( 
-   <button className={`${variantStyles[props.variant]} ${defaultStyle} ${sizeStyle[props.size]}`}>{props.startIcon? <div className="pr-2">{props.startIcon}</div>: null} {props.text} {props.endIcon}</button>
+    
+   <button className={`${variantStyles[props.variant]} ${defaultStyle} ${sizeStyle[props.size]}`}>
+    <div className="flex">
+    {props.startIcon? <div className="pr-2">{props.startIcon}</div>: null} <div className="pr-2">{props.text}</div> <div className="mt-1">{props.endIcon}</div> 
+    </div>
+    </button>
 
   )
 
