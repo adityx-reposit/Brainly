@@ -14,7 +14,7 @@ function App() {
       
       <Button  startIcon={<PlusIcon size='lg' />} endIcon={<ShareIcons size='lg'/>}  size='md' variant='secondary' text='Add Content'></Button>
       <br />
-      <Button  startIcon={<PlusIcon size='lg'/>} endIcon={<ShareIcons size='lg'/>}  size='lg' variant='secondary' text='Like'></Button>
+      <Button  startIcon={<PlusIcon size='lg'/>} endIcon={<ShareIcons size='lg'/>}  size='lg' variant='secondary' text='Add Content'></Button>
     
     </>
   )
