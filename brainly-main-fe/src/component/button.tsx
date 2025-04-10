@@ -14,14 +14,14 @@ export interface ButtonProps {
 
 const defaultStyle="rounded-md p-4 flex"
 const variantStyles={
-    "primary": "bg-[#4643dd] text-white font-light",
-    "secondary":"bg-[#b9c9f3] text-white font-light"
+    "primary": "bg-[#4643dd] text-white",
+    "secondary":"bg-[#b9c9f3] text-white"
 }
 
 const sizeStyle={
     "sm":"py-1 px-2 rounded-sm",
     "md":"py-2 px-6 rounded-md",
-    "lg":"py-4 px-8 rounded xl"
+    "lg":"py-4 px-7 rounded xl"
 }
 
 export const Button =(props:ButtonProps)=>{
