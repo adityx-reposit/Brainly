@@ -30,7 +30,7 @@ export const Button =(props:ButtonProps)=>{
 
   return( 
     
-   <button className={`${variantStyles[props.variant]} ${defaultStyle} ${sizeStyle[props.size]}`}>
+   <button onClick={onClick} className={`${variantStyles[props.variant]} ${defaultStyle} ${sizeStyle[props.size]}`}>
     <div className="flex">
     {props.startIcon? <div className="pr-2">{props.startIcon}</div>: null} <div className="pr-2">{props.text}</div> <div className="mt-1">{props.endIcon}</div> 
     </div>
