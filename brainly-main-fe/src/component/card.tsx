@@ -17,7 +17,7 @@ export function Card({ title, link, type }: CardProps) {
 
   return (
     <div>
-      <div className="bg-white border-1 border-slate-200 rounded-sm p-4 shadow-md outline-slate-200 max-w-72 min-h-48">
+      <div className="bg-white border-1 hover:scale-105 border-slate-200 rounded-sm p-4 shadow-md outline-slate-200 max-w-72 min-h-48">
         <div className="flex justify-between items-center">
           <div className="flex items-center text-sm">
             <div className="text-xl uppercase font-serif">{title}</div>
