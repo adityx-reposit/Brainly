@@ -6,7 +6,7 @@ const SidebarItem = ({text,Icon}:{
 
 }) => {
   return (
-    <div className='hover:bg-gray-100 flex pl-4 text-gray-600'>
+    <div className='hover:bg-gray-100  flex pl-4 text-gray-600'>
         <div className='p-2 '>
 
          {Icon}

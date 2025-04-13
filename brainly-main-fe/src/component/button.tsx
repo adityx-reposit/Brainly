@@ -2,37 +2,52 @@ import { ReactElement } from "react";
 
 type Variants = "primary" | "secondary";
 export interface ButtonProps {
-    variant: "primary" | "secondary";
-    size: "sm" | "md" | "lg";
-    text: string;
-    startIcon?: ReactElement;
-    endIcon?: ReactElement;
-    onClick?: () => void;
+  variant: "primary" | "secondary";
+  size: "sm" | "md" | "lg";
+  text: string;
+  startIcon?: ReactElement;
+  endIcon?: ReactElement;
+  onClick?: () => void;
+  fullwidth?: boolean;
+  loading?: boolean;
 }
 
-const defaultStyle = "rounded-md p-4 flex";
+const defaultStyle = "rounded-md p-2 flex";
 const variantStyles = {
-    "primary": "bg-[#4643dd] text-white",
-    "secondary": "bg-[#b9c9f3] text-white"
+  primary: "bg-[#4643dd] text-white",
+  secondary: "bg-[#b9c9f3] text-white",
 };
 
 const sizeStyle = {
-    "sm": "py-1 px-2 rounded-sm",
-    "md": "py-2 px-6 rounded-md",
-    "lg": "py-4 px-7 rounded xl"
+  sm: "py-2 px-4 rounded-sm",
+  md: "py-4 px-6 rounded-md",
+  lg: "py-6 px-8 rounded xl",
 };
 
-export const Button = (props: ButtonProps) => {
-    return (
-        <button 
-            onClick={props.onClick} 
-            className={`${variantStyles[props.variant]} ${defaultStyle} ${sizeStyle[props.size]}`}
-        >
-            <div className="flex" >
-                {props.startIcon ? <div className="pr-2">{props.startIcon}</div> : null}
-                <div className="pr-2">{props.text}</div>
-                {props.endIcon ? <div className="mt-1">{props.endIcon}</div> : null}
-            </div>
-        </button>
-    );
-};
+export function Button({
+  variant,
+  text,
+  size,
+  startIcon,
+  onClick,
+  fullwidth,
+  loading,
+}: ButtonProps) {
+  return (
+    <button
+      onClick={onClick}
+      className={
+        variantStyles[variant] +
+        " rounded " + size[{sizeStyle}]+
+        defaultStyle +
+        `${fullwidth ? " w-full" : ""} ${loading ? "opacity-45" : ""}`
+      }
+    >
+      <div className="pr-2 mt-1.5">{startIcon}</div>
+      <div className="mt-1">
+
+      {text}
+      </div>
+    </button>
+  );
+}
