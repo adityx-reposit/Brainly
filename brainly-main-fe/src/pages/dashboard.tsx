@@ -4,12 +4,13 @@ import { CreateContentModal } from "../component/CreateContentModal";
 import { Button } from "../component/button";
 import PlusIcon, { ShareIcons } from "../icons/PlusIcon";
 import { Card } from "../component/card";
+import { useContent } from "../hooks/useContent";
 
 
 function Dashboard() {
 
   const [modalOpen , setModalOpen]=useState(false)
-  
+  const contents = useContent() || []; // Ensure contents is always an array
   
   return ( 
   <div>
@@ -37,22 +38,15 @@ function Dashboard() {
       </div>
 
       <div className="flex gap-4 mt-4">
-      
-          <Card
-          type="twitter"
-          link="https://x.com/karaan_dev/status/1909634179135910023"
-          title="twitter"
-        />
-          <Card
-            type="youtube"
-            link={"https://youtu.be/TU1HQnU_9ME?si=KmGW78yLy54HHQmm"}
-            title="youtube"
-          />
-              {/* <Card
-            type="twitter"
-            link="https://x.com/karaan_dev/status/1909634179135910023"
-            title="twitter"
-          />  */}
+        {contents.map(({type,link,title})=>
+
+            <Card
+            type={type}
+            link={link}
+            title={title}
+            />
+          )}
+         
 
       </div> 
     </div>

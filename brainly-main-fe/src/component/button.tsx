@@ -38,7 +38,7 @@ export function Button({
       onClick={onClick}
       className={
         variantStyles[variant] +
-        " rounded " + size[{sizeStyle}]+
+        " rounded " +
         defaultStyle +
         `${fullwidth ? " w-full" : ""} ${loading ? "opacity-45" : ""}`
       }
