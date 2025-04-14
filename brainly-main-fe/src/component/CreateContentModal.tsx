@@ -31,6 +31,7 @@ export function CreateContentModal({ open, onClose }) {
           }
 
         })
+        onClose()
     }
 
   useEffect(() => {
@@ -78,7 +79,7 @@ export function CreateContentModal({ open, onClose }) {
                 </div>
               </div>
               <div className="flex justify-center items-center mt-2">
-                <Button onClick={addContent} variant="primary" text="submit" size="sm"  />
+                <Button onClick={addContent }  variant="primary" text="submit" size="sm"  />
               </div>
             </span>
           </div>

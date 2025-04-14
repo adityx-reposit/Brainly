@@ -4,7 +4,7 @@ import { BACKEND_URL } from "../config";
 
 export function useContent() {
   const [contents, useContent] = useState([]);
-  useEffect(() => {
+  function refresh(){
     const response = axios
       .get(`${BACKEND_URL}/api/v1/content`, {
         headers: {
@@ -12,8 +12,19 @@ export function useContent() {
         },
       })
       .then((response) => {
-        useContent(response.data.contents);
+        useContent(response.data.content);
       });
+  }
+  
+  useEffect(() => {
+    refresh()
+   let interval= setInterval(() => {
+         refresh()
+    }, 3*1000);
+    return ()=>{
+      clearInterval(interval)
+    }
+  
   }, []);
   return contents;
 }

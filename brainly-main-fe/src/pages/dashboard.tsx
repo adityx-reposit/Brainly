@@ -5,6 +5,9 @@ import { Button } from "../component/button";
 import PlusIcon, { ShareIcons } from "../icons/PlusIcon";
 import { Card } from "../component/card";
 import { useContent } from "../hooks/useContent";
+import axios from "axios";
+import shareBrain from "../component/shareBrain";
+import { BACKEND_URL } from "../config";
 
 
 function Dashboard() {
@@ -19,7 +22,18 @@ function Dashboard() {
           <CreateContentModal  open={modalOpen} onClose={()=>{setModalOpen(false)}}/>
        <div className=" flex justify-end  m-2 gap-3 items-center">
             <div className="hover:scale-102">
-              <Button 
+              <Button
+               onClick={async()=>{
+                const response = await axios.post(`${BACKEND_URL}/api/v1/brain/share`,{
+                     share:true
+                 },{
+                  headers:{
+                    "Authorization":localStorage.getItem("token")
+                  }
+                 })
+                const shareUrl= `https:localhost:3000/${response.data.hash}`
+                alert(shareUrl)
+              }}
                 startIcon={<ShareIcons size="md" />}
                 size="sm"
                 variant="primary"
@@ -37,7 +51,7 @@ function Dashboard() {
             </div>
       </div>
 
-      <div className="flex gap-4 mt-4">
+      <div className="flex flex-wrap gap-4 mt-4">
         {contents.map(({type,link,title})=>
 
             <Card
