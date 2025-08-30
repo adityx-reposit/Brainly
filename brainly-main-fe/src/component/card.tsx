@@ -9,8 +9,11 @@ interface CardProps {
 export function Card({ title, link, type }: CardProps) {
   // Extract YouTube video ID
   const getYouTubeEmbedURL = (url: string) => {
-    const videoIdMatch = url.match(/[?&]v=([^&#]*)/) || url.match(/youtu\.be\/([^&#]*)/);
-    return videoIdMatch ? `https://www.youtube.com/embed/${videoIdMatch[1]}` : null;
+    const videoIdMatch =
+      url.match(/[?&]v=([^&#]*)/) || url.match(/youtu\.be\/([^&#]*)/);
+    return videoIdMatch
+      ? `https://www.youtube.com/embed/${videoIdMatch[1]}`
+      : null;
   };
 
   const embedURL = type === "youtube" ? getYouTubeEmbedURL(link) : null;
@@ -28,7 +31,7 @@ export function Card({ title, link, type }: CardProps) {
                 <ShareIcons size="lg" />
               </a>
             </div>
-            <div className="pr-2 text-gray-500">
+            <div className="pr-2 text-gray-500 cursor-pointer">
               <PlusIcon size="lg" />
             </div>
           </div>

@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import SidebarItem from "./sidebarItem";
 import { TwitterIcon } from "../icons/TwitterIcon";
 import YoutubeIcon from "../icons/YoutubeIcon";
 
 const SideBar = () => {
+  const [sideBar, setSideBar] = useState(true);
+
   return (
-    <div className="h-screen bg-white w-72  absolute left-0 top-0">
-      <div className="flex gap-2 items-center font-black ml-5   mt-3 text-2xl">
+    <div
+      className={`${
+        sideBar ? "opacity-100" : "opacity-0"
+      }  h-screen bg-linear-to-b from-blue-400 to-white w-72  absolute left-0 top-0 `}
+    >
+      <div className="flex gap-3 items-center font-black ml-5   mt-3 text-2xl ">
         <div className="cursor-pointer">
           <svg
             fill="#000000"
@@ -15,7 +21,6 @@ const SideBar = () => {
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 511 511"
-           
             enableBackground="new 0 0 511 511"
           >
             <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
@@ -33,7 +38,7 @@ const SideBar = () => {
         Brainly
       </div>
 
-      <div className="pt-4 pl-4  ">
+      <div className="pt-4 pl-4 ">
         <SidebarItem text="Twitter" Icon={<TwitterIcon />} />
         <SidebarItem text="Youtube" Icon={<YoutubeIcon />} />
       </div>
