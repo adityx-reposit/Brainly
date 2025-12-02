@@ -2,7 +2,7 @@
 
 A modern and interactive platform designed to help students ask, answer, and explore academic questions. Built for speed, collaboration, and learning.
 
-🚀 Features
+
 
 📚 Ask and answer questions in real-time
 
